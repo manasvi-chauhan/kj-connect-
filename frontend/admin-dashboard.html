@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | KJ Connect</title>
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+<body>
+
+<div class="admin-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>KJ Connect</h2>
+        <ul>
+            <li onclick="loadPage('admin-users.html')">User Approvals</li>
+            <li onclick="loadPage('admin-committees.html')">Committees / Clubs</li>
+            <li onclick="loadPage('admin-notices.html')">Post Notices</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <iframe id="adminFrame" src="admin-users.html"></iframe>
+    </main>
+
+</div>
+
+<script>
+function loadPage(page) {
+    document.getElementById("adminFrame").src = page;
+}
+
+function logout() {
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

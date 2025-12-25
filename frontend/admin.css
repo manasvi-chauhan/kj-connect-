@@ -1,0 +1,352 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* COLOR VARIABLES */
+:root {
+    --somaiya-red: #a62828;
+    --dark-red: #8b1e1e;
+    --white: #ffffff;
+    --light-bg: #f6f6f6;
+}
+
+/* MAIN LAYOUT */
+.admin-container {
+    display: flex;
+    height: 100vh;
+    background: var(--light-bg);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: var(--somaiya-red);
+    color: var(--white);
+    padding: 25px 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+}
+
+/* SIDEBAR MENU */
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 14px 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1.5px solid rgba(255,255,255,0.4);
+}
+
+.sidebar ul li:hover {
+    background: var(--white);
+    color: var(--somaiya-red);
+}
+
+/* CONTENT AREA */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* IFRAME */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+}
+
+/* PAGE HEADINGS */
+h2 {
+    margin-bottom: 25px;
+    color: var(--somaiya-red);
+    letter-spacing: 1px;
+}
+
+/* CARD STYLE (USED FOR SECTIONS) */
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+}
+
+/* TABLES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+table th {
+    background: var(--somaiya-red);
+    color: var(--white);
+    padding: 14px;
+    text-align: left;
+    font-weight: 600;
+}
+
+table td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+table tr:hover {
+    background: #f2f2f2;
+}
+
+/* ACTION BUTTONS */
+table button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* APPROVE */
+.approve-btn {
+    background: var(--somaiya-red);
+    color: var(--white);
+}
+
+.approve-btn:hover {
+    background: var(--dark-red);
+}
+
+/* REJECT */
+.reject-btn {
+    background: transparent;
+    border: 2px solid var(--somaiya-red);
+    color: var(--somaiya-red);
+}
+
+.reject-btn:hover {
+    background: var(--somaiya-red);
+    color: var(--white);
+}
+
+/* FORMS (NOTICE / COMMITTEE) */
+form {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    max-width: 700px;
+}
+
+/* LABELS */
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--dark-red);
+}
+
+/* INPUTS */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1.5px solid var(--somaiya-red);
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+/* TEXTAREA */
+form textarea {
+    resize: none;
+    height: 120px;
+}
+
+/* MULTI SELECT */
+select[multiple] {
+    height: 130px;
+}
+
+/* FORM BUTTON */
+form button {
+    width: 100%;
+    padding: 14px;
+    background: var(--somaiya-red);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: var(--dark-red);
+}
+
+/* HEADER UTILITIES */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.meta {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(166,40,40,0.12);
+    color: var(--somaiya-red);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 0.82rem;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+.tag.accent {
+    background: rgba(166,40,40,0.12);
+    color: var(--somaiya-red);
+    border: 1px solid rgba(166,40,40,0.2);
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #eef2f7;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.badge.success {
+    background: rgba(53, 172, 87, 0.15);
+    color: #2d8a50;
+}
+
+.badge.pending {
+    background: rgba(245, 171, 53, 0.18);
+    color: #aa6b12;
+}
+
+/* STAT CARDS + GRID */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.stat-title {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--somaiya-red);
+    margin-top: 6px;
+}
+
+/* NOTICE CARDS */
+.notice-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 15px 28px rgba(0,0,0,0.12);
+    margin-bottom: 16px;
+}
+
+.notice-title {
+    font-size: 1.1rem;
+    color: var(--somaiya-red);
+    margin-bottom: 4px;
+}
+
+.notice-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.notice-content {
+    color: #2b2b2b;
+    margin-bottom: 12px;
+}
+
+.notice-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.seen-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.seen-item {
+    background: rgba(166,40,40,0.12);
+    color: var(--somaiya-red);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(166,40,40,0.2);
+}

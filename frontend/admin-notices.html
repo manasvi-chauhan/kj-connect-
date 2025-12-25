@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="style.css">
+
+<div class="page-header">
+    <div>
+        <h2>Post Notice</h2>
+        <p class="meta">Global notices with filters for department, class, and year. Seen indicator tracks who opened the notice.</p>
+    </div>
+    <span class="pill">Visible to all roles</span>
+</div>
+
+<form enctype="multipart/form-data" onsubmit="return handleNotice(event)">
+    <input type="text" id="posterName" placeholder="Admin Name" required>
+
+    <input type="text" id="noticeTitle" placeholder="Notice Title" required>
+
+    <label for="department">Department</label>
+    <select id="department" multiple required>
+        <option>Computer Engineering</option>
+        <option>Information Technology</option>
+        <option>Artificial Intelligence & Data Science</option>
+        <option>EXTC</option>
+        <option>All</option>
+    </select>
+
+    <label for="classSelect">Class / Division</label>
+    <select id="classSelect">
+        <option>A</option>
+        <option>B</option>
+        <option>All</option>
+    </select>
+
+    <label for="year">Year</label>
+    <select id="year" multiple>
+        <option>FY</option>
+        <option>SY</option>
+        <option>TY</option>
+        <option>LY</option>
+        <option>All</option>
+    </select>
+
+    <textarea id="noticeContent" placeholder="Notice Content" required></textarea>
+
+    <label>Attach File</label>
+    <input type="file" id="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,image/*,video/*">
+
+    <button type="submit">Post Notice</button>
+</form>
+
+<div style="height: 24px;"></div>
+
+<div class="page-header">
+    <div>
+        <h2>Recent Notices</h2>
+        <p class="meta">Includes a seen-by list for accountability.</p>
+    </div>
+    <span class="pill">Seen indicator live</span>
+</div>
+
+<div class="notice-card">
+    <div class="flex-between">
+        <div>
+            <div class="notice-title">Mid-Semester Exam Schedule</div>
+            <div class="notice-meta">
+                <span class="badge">Admin • Priya Nair</span>
+                <span class="badge">All Departments</span>
+                <span class="badge">All Years</span>
+            </div>
+        </div>
+        <span class="badge success">Published</span>
+    </div>
+    <p class="notice-content">Mid-semester exams will begin from 3rd Oct. Detailed timetable attached.</p>
+    <div class="notice-actions">
+        <div class="seen-list">
+            <span class="seen-item">Seen: 24 students</span>
+            <span class="seen-item">7 faculty</span>
+            <span class="seen-item">2 committee heads</span>
+        </div>
+        <div>
+            <button class="reject-btn" onclick="alert('Attachment preview placeholder')">View Attachment</button>
+        </div>
+    </div>
+</div>
+
+<div class="notice-card">
+    <div class="flex-between">
+        <div>
+            <div class="notice-title">Workshop: Generative AI</div>
+            <div class="notice-meta">
+                <span class="badge">Committee • CSI</span>
+                <span class="badge">IT, CS</span>
+                <span class="badge">TY / LY</span>
+            </div>
+        </div>
+        <span class="badge success">Published</span>
+    </div>
+    <p class="notice-content">Hands-on workshop on generative AI, limited seats. Register via the attached form.</p>
+    <div class="notice-actions">
+        <div class="seen-list">
+            <span class="seen-item">Seen by: 18</span>
+            <span class="seen-item">Latest: 2 mins ago</span>
+        </div>
+        <div>
+            <button class="reject-btn" onclick="alert('Registration link placeholder')">Open Link</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function handleNotice(event) {
+    event.preventDefault();
+    alert("Notice drafted. In production, save and broadcast to relevant filters with seen tracking.");
+    return false;
+}
+</script>

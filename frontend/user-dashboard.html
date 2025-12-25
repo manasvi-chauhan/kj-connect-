@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard | KJ Connect</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+    <aside class="sidebar">
+        <h2 id="roleTitle">KJ Connect</h2>
+        <ul>
+            <li onclick="scrollToSection('notices')">Notices</li>
+            <li onclick="scrollToSection('committees')">Committees</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <div class="page-header">
+            <div>
+                <h2 id="welcomeText">Welcome</h2>
+                <p class="meta" id="roleMeta">Role-based permissions are applied automatically.</p>
+            </div>
+            <span class="pill" id="approvalStatus">Approved</span>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-title">Unread notices</div>
+                <div class="stat-value">3</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Seen today</div>
+                <div class="stat-value">5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">New attachments</div>
+                <div class="stat-value">2</div>
+            </div>
+        </div>
+
+        <div id="notices" class="card">
+            <div class="flex-between" style="margin-bottom: 12px;">
+                <h3>Notice Board</h3>
+                <div class="seen-list">
+                    <span class="tag accent">Filters</span>
+                    <span class="tag">Dept: All</span>
+                    <span class="tag">Class: All</span>
+                    <span class="tag">Year: All</span>
+                </div>
+            </div>
+            <form style="box-shadow:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">
+                <select>
+                    <option>All Departments</option>
+                    <option>Computer Engineering</option>
+                    <option>Information Technology</option>
+                    <option>AI & DS</option>
+                    <option>EXTC</option>
+                </select>
+                <select>
+                    <option>All Classes</option>
+                    <option>A</option>
+                    <option>B</option>
+                </select>
+                <select>
+                    <option>All Years</option>
+                    <option>FY</option>
+                    <option>SY</option>
+                    <option>TY</option>
+                    <option>LY</option>
+                </select>
+                <button type="button" onclick="alert('Filters applied for demo')">Apply Filters</button>
+            </form>
+        </div>
+
+        <div class="notice-card">
+            <div class="flex-between">
+                <div>
+                    <div class="notice-title">Lab Schedule Update</div>
+                    <div class="notice-meta">
+                        <span class="badge">Faculty • Prof. Meera Shah</span>
+                        <span class="badge">Department: IT</span>
+                        <span class="badge">Class: A</span>
+                        <span class="badge">Year: SY</span>
+                    </div>
+                </div>
+                <button class="approve-btn" onclick="markSeen(this)">Open Notice</button>
+            </div>
+            <p class="notice-content">Tomorrow's lab will be shifted to 2 PM. Please carry laptops. Attachment contains updated experiment list.</p>
+            <div class="notice-actions">
+                <div class="seen-list">
+                    <span class="tag accent">Seen indicator hidden from students; tracked internally.</span>
+                </div>
+                <div>
+                    <button class="reject-btn" onclick="alert('Download attachment placeholder')">View Attachment</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="notice-card">
+            <div class="flex-between">
+                <div>
+                    <div class="notice-title">Event: Hackathon by CSI</div>
+                    <div class="notice-meta">
+                        <span class="badge">Committee • CSI</span>
+                        <span class="badge">All Departments</span>
+                        <span class="badge">All Years</span>
+                    </div>
+                </div>
+                <button class="approve-btn" onclick="markSeen(this)">Open Notice</button>
+            </div>
+            <p class="notice-content">24-hour hackathon next weekend. Team of 3. Register before Friday.</p>
+            <div class="notice-actions">
+                <div class="seen-list">
+                    <span class="seen-item">Seen by you? <strong>No</strong></span>
+                </div>
+                <div>
+                    <button class="reject-btn" onclick="alert('Registration form placeholder')">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="notice-card" id="creatorNotice">
+            <div class="flex-between">
+                <div>
+                    <div class="notice-title">Your Posted Notice</div>
+                    <div class="notice-meta">
+                        <span class="badge">You (Faculty / Committee Head)</span>
+                        <span class="badge">Tracking engaged viewers</span>
+                    </div>
+                </div>
+                <span class="badge success">Published</span>
+            </div>
+            <p class="notice-content">Example of a notice you posted. The seen-by list below mirrors WhatsApp-style visibility for authorized creators.</p>
+            <div class="notice-actions">
+                <div class="seen-list">
+                    <span class="seen-item">Seen: 12</span>
+                    <span class="seen-item">Latest: 5 mins ago</span>
+                    <span class="seen-item">Faculty: 3</span>
+                    <span class="seen-item">Students: 9</span>
+                </div>
+                <div>
+                    <button class="reject-btn" onclick="alert('Edit notice placeholder')">Edit Notice</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="committees" class="card">
+            <div class="flex-between" style="margin-bottom: 10px;">
+                <h3>Committees & Clubs</h3>
+                <span class="tag accent">Assigned identity for committee heads</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Committee</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>CSI – Computer Society of India</td>
+                    <td id="committeeRole">Viewer</td>
+                    <td><button class="reject-btn" onclick="alert('Open committee details placeholder')">Open</button></td>
+                </tr>
+                <tr>
+                    <td>Cultural Committee</td>
+                    <td>Viewer</td>
+                    <td><button class="reject-btn" onclick="alert('Open committee details placeholder')">Open</button></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</div>
+
+<script>
+    const role = localStorage.getItem("kj_role") || "Student";
+    const email = localStorage.getItem("kj_email") || "you@somaiya.edu";
+
+    document.getElementById("roleTitle").innerText = role + " Portal";
+    document.getElementById("welcomeText").innerText = `Hello, ${role}`;
+    document.getElementById("roleMeta").innerText = `Signed in as ${email}. Permissions reflect the ${role} role.`;
+
+    // Hide creator-only block for students
+    if (role === "Student") {
+        document.getElementById("creatorNotice").style.display = "none";
+        document.getElementById("committeeRole").innerText = "Viewer";
+    } else if (role === "Faculty") {
+        document.getElementById("committeeRole").innerText = "Viewer + Publisher";
+    } else {
+        document.getElementById("committeeRole").innerText = "Committee Head";
+    }
+
+    function markSeen(button) {
+        button.innerText = "Marked as seen";
+        button.disabled = true;
+    }
+
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function logout() {
+        localStorage.removeItem("kj_role");
+        localStorage.removeItem("kj_email");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>
+
+

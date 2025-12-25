@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration | KJ Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Registration</h2>
+    <p class="note">Only @somaiya.edu email IDs allowed. Accounts remain in <strong>pending</strong> state until admin approval; login is blocked until then.</p>
+
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Roll Number" required>
+
+        <!-- DEPARTMENT DROPDOWN -->
+        <select required>
+            <option value="">Select Department</option>
+            <option>Computer Engineering</option>
+            <option>Information Technology</option>
+            <option>Artificial Intelligence & Data Science</option>
+            <option>Electronics & Telecommunication (EXTC)</option>
+        </select>
+
+        <input type="text" placeholder="Division" required>
+        <input type="text" placeholder="Enrollment Number" required>
+
+        <input type="email" placeholder="Somaiya Email ID" required>
+
+        <!-- 10 DIGIT CONTACT -->
+        <input 
+            type="tel" 
+            placeholder="Contact Number (10 digits)" 
+            pattern="[0-9]{10}" 
+            maxlength="10" 
+            required
+        >
+
+        <button type="submit">Register (Approval Required)</button>
+    </form>
+</div>
+
+</body>
+</html>

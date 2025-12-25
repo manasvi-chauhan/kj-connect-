@@ -1,0 +1,63 @@
+
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="style.css">
+
+<div class="page-header">
+    <div>
+        <h2>Manage Committees / Clubs</h2>
+        <p class="meta">Create committees and assign committee heads. Committees act as official publishers inside KJ Connect.</p>
+    </div>
+    <span class="pill">Centralized by Admin</span>
+</div>
+
+<form onsubmit="return addCommittee(event)">
+    <input type="text" id="committeeName" placeholder="Committee / Club Name" required>
+    <textarea id="committeeDescription" placeholder="Description"></textarea>
+    <label>Assign Committee Head</label>
+    <select id="committeeHead">
+        <option>Pending head approval</option>
+        <option>Prof. Meera Shah</option>
+        <option>Aryan Desai</option>
+    </select>
+    <button type="submit">Add Committee</button>
+</form>
+
+<div style="height: 24px;"></div>
+
+<div class="card">
+    <h3>Existing Committees</h3>
+    <table>
+        <tr>
+            <th>Committee</th>
+            <th>Head</th>
+            <th>Focus</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>CSI – Computer Society of India</td>
+            <td>Aryan Desai</td>
+            <td>Technical events, coding contests</td>
+            <td><button class="reject-btn" onclick="alert('Remove or reassign placeholder')">Manage</button></td>
+        </tr>
+        <tr>
+            <td>ISTE</td>
+            <td>Prof. Meera Shah</td>
+            <td>Workshops, faculty-student collaboration</td>
+            <td><button class="reject-btn" onclick="alert('Remove or reassign placeholder')">Manage</button></td>
+        </tr>
+        <tr>
+            <td>Cultural Committee</td>
+            <td>—</td>
+            <td>College festivals, performances</td>
+            <td><button class="reject-btn" onclick="alert('Assign head placeholder')">Assign Head</button></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+function addCommittee(event) {
+    event.preventDefault();
+    alert("Committee saved. In production, persist and notify the assigned head.");
+    return false;
+}
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Registration | KJ Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Faculty Registration</h2>
+    <p class="note">Faculty verification and admin approval are mandatory. Your account stays pending until verified.</p>
+
+    <form>
+        <input type="text" placeholder="Full Name" required>
+
+        <!-- DEPARTMENT DROPDOWN -->
+        <select required>
+            <option value="">Select Department</option>
+            <option>Computer Engineering</option>
+            <option>Information Technology</option>
+            <option>Artificial Intelligence & Data Science</option>
+            <option>Electronics & Telecommunication (EXTC)</option>
+        </select>
+
+        <!-- 10 DIGIT CONTACT -->
+        <input 
+            type="tel" 
+            placeholder="Contact Number (10 digits)" 
+            pattern="[0-9]{10}" 
+            maxlength="10" 
+            required
+        >
+
+        <input type="email" placeholder="Somaiya Email ID" required>
+
+        <label class="upload-label">Upload College ID Proof</label>
+        <input type="file" required>
+
+        <button type="submit">Register (Approval Required)</button>
+    </form>
+</div>
+
+</body>
+</html>

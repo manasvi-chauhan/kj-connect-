@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login | KJ Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+<div class="form-container">
+    <h2>Admin Login</h2>
+    <p class="note">Authorized access only. Successful login opens the admin control dashboard.</p>
+
+    <form onsubmit="return adminLogin()">
+        <input type="email" id="adminEmail" placeholder="Admin Email" required>
+        <input type="password" id="adminPassword" placeholder="Password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+    function adminLogin() {
+        const email = document.getElementById("adminEmail").value;
+        const password = document.getElementById("adminPassword").value;
+
+        if (email === "admin@somaiya.edu" && password === "admin123") {
+            window.location.href = "admin-dashboard.html";
+            return false; // prevent default submit
+        } else {
+            alert("Invalid Admin Credentials");
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>
