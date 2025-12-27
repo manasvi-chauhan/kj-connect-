@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Student Registration | KJ Connect</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
 </head>
 <body>
 
@@ -11,26 +12,26 @@
     <h2>Student Registration</h2>
     <p class="note">Only @somaiya.edu email IDs allowed. Accounts remain in <strong>pending</strong> state until admin approval; login is blocked until then.</p>
 
-    <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="text" placeholder="Roll Number" required>
+    <form onsubmit="return submitStudent(event)">
+        <input id="stuName" type="text" placeholder="Full Name" required>
+        <input id="stuRoll" type="text" placeholder="Roll Number" required>
 
         <!-- DEPARTMENT DROPDOWN -->
-        <select required>
+        <select id="stuDept" required>
             <option value="">Select Department</option>
             <option>Computer Engineering</option>
             <option>Information Technology</option>
             <option>Artificial Intelligence & Data Science</option>
             <option>Electronics & Telecommunication (EXTC)</option>
         </select>
+        <input id="stuDiv" type="text" placeholder="Division" required>
+        <input id="stuEnroll" type="text" placeholder="Enrollment Number" required>
 
-        <input type="text" placeholder="Division" required>
-        <input type="text" placeholder="Enrollment Number" required>
-
-        <input type="email" placeholder="Somaiya Email ID" required>
+        <input id="stuEmail" type="email" placeholder="Somaiya Email ID" required>
 
         <!-- 10 DIGIT CONTACT -->
         <input 
+            id="stuContact"
             type="tel" 
             placeholder="Contact Number (10 digits)" 
             pattern="[0-9]{10}" 
@@ -40,6 +41,22 @@
 
         <button type="submit">Register (Approval Required)</button>
     </form>
+
+<script>
+function submitStudent(event) {
+    event.preventDefault();
+    const user = {
+        name: document.getElementById('stuName').value,
+        role: 'Student',
+        department: document.getElementById('stuDept').value + ' | ' + document.getElementById('stuDiv').value,
+        email: document.getElementById('stuEmail').value
+    };
+    app.addUser(user);
+    alert('Registered. Account pending admin approval.');
+    window.location.href = 'login.html';
+    return false;
+}
+</script>
 </div>
 
 </body>

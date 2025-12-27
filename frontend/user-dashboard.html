@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>User Dashboard | KJ Connect</title>
     <link rel="stylesheet" href="admin.css">
+    <script src="app.js"></script>
 </head>
 <body>
 
@@ -73,79 +74,20 @@
                 </select>
                 <button type="button" onclick="alert('Filters applied for demo')">Apply Filters</button>
             </form>
-        </div>
 
-        <div class="notice-card">
-            <div class="flex-between">
-                <div>
-                    <div class="notice-title">Lab Schedule Update</div>
-                    <div class="notice-meta">
-                        <span class="badge">Faculty • Prof. Meera Shah</span>
-                        <span class="badge">Department: IT</span>
-                        <span class="badge">Class: A</span>
-                        <span class="badge">Year: SY</span>
-                    </div>
-                </div>
-                <button class="approve-btn" onclick="markSeen(this)">Open Notice</button>
-            </div>
-            <p class="notice-content">Tomorrow's lab will be shifted to 2 PM. Please carry laptops. Attachment contains updated experiment list.</p>
-            <div class="notice-actions">
-                <div class="seen-list">
-                    <span class="tag accent">Seen indicator hidden from students; tracked internally.</span>
-                </div>
-                <div>
-                    <button class="reject-btn" onclick="alert('Download attachment placeholder')">View Attachment</button>
-                </div>
-            </div>
-        </div>
+            <div class="notices-list"></div>
 
-        <div class="notice-card">
-            <div class="flex-between">
-                <div>
-                    <div class="notice-title">Event: Hackathon by CSI</div>
-                    <div class="notice-meta">
-                        <span class="badge">Committee • CSI</span>
-                        <span class="badge">All Departments</span>
-                        <span class="badge">All Years</span>
-                    </div>
-                </div>
-                <button class="approve-btn" onclick="markSeen(this)">Open Notice</button>
-            </div>
-            <p class="notice-content">24-hour hackathon next weekend. Team of 3. Register before Friday.</p>
-            <div class="notice-actions">
-                <div class="seen-list">
-                    <span class="seen-item">Seen by you? <strong>No</strong></span>
-                </div>
-                <div>
-                    <button class="reject-btn" onclick="alert('Registration form placeholder')">Register</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="notice-card" id="creatorNotice">
-            <div class="flex-between">
-                <div>
-                    <div class="notice-title">Your Posted Notice</div>
-                    <div class="notice-meta">
-                        <span class="badge">You (Faculty / Committee Head)</span>
-                        <span class="badge">Tracking engaged viewers</span>
-                    </div>
-                </div>
-                <span class="badge success">Published</span>
-            </div>
-            <p class="notice-content">Example of a notice you posted. The seen-by list below mirrors WhatsApp-style visibility for authorized creators.</p>
-            <div class="notice-actions">
-                <div class="seen-list">
-                    <span class="seen-item">Seen: 12</span>
-                    <span class="seen-item">Latest: 5 mins ago</span>
-                    <span class="seen-item">Faculty: 3</span>
-                    <span class="seen-item">Students: 9</span>
-                </div>
-                <div>
-                    <button class="reject-btn" onclick="alert('Edit notice placeholder')">Edit Notice</button>
-                </div>
-            </div>
-        </div>
+            <script>
+                // Render notices into the dashboard
+                app.renderRecentNotices();
+                // Hide creator-only block if there is none
+                (function(){
+                    const role = localStorage.getItem('kj_role') || 'Student';
+                    if (role === 'Student') {
+                        // students can't post; no creator block shown
+                    }
+                })();
+            </script>
 
         <div id="committees" class="card">
             <div class="flex-between" style="margin-bottom: 10px;">

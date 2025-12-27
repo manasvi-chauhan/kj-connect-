@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
 
 <div class="page-header">
     <div>
         <h2>Pending User Approvals</h2>
-        <p class="meta">Approve or reject fresh registrations for students, faculty, and committee heads before they gain access.</p>
+        
     </div>
     <span class="pill">Awaiting review: 3</span>
 </div>
@@ -19,53 +20,11 @@
             <th>Status</th>
             <th>Action</th>
         </tr>
-
-        <tr>
-            <td>Rahul Patil</td>
-            <td>Student</td>
-            <td>Computer Engineering | FY | Division A</td>
-            <td>rahul.patil@somaiya.edu</td>
-            <td><span class="badge pending">Pending</span></td>
-            <td>
-                <button class="approve-btn" onclick="approveUser('Rahul Patil')">Approve</button>
-                <button class="reject-btn" onclick="rejectUser('Rahul Patil')">Reject</button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Prof. Meera Shah</td>
-            <td>Faculty</td>
-            <td>Information Technology</td>
-            <td>meera.shah@somaiya.edu</td>
-            <td><span class="badge pending">Pending</span></td>
-            <td>
-                <button class="approve-btn" onclick="approveUser('Prof. Meera Shah')">Approve</button>
-                <button class="reject-btn" onclick="rejectUser('Prof. Meera Shah')">Reject</button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Aryan Desai</td>
-            <td>Committee Head</td>
-            <td>CSI – Computer Society of India</td>
-            <td>aryan.desai@somaiya.edu</td>
-            <td><span class="badge pending">Pending</span></td>
-            <td>
-                <button class="approve-btn" onclick="approveUser('Aryan Desai')">Approve</button>
-                <button class="reject-btn" onclick="rejectUser('Aryan Desai')">Reject</button>
-            </td>
-        </tr>
+        <tbody id="pendingUsersTbody"></tbody>
     </table>
 </div>
 
 <script>
-function approveUser(name) {
-    alert(name + " approved. Login access enabled.");
-    // backend: update status = APPROVED
-}
-
-function rejectUser(name) {
-    alert(name + " rejected. Account remains blocked.");
-    // backend: delete or mark rejected
-}
+    // Render any pending users from localStorage
+    app.renderPendingUsers();
 </script>

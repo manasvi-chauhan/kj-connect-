@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Faculty Registration | KJ Connect</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
 </head>
 <body>
 
@@ -11,11 +12,11 @@
     <h2>Faculty Registration</h2>
     <p class="note">Faculty verification and admin approval are mandatory. Your account stays pending until verified.</p>
 
-    <form>
-        <input type="text" placeholder="Full Name" required>
+    <form onsubmit="return submitFaculty(event)">
+        <input id="facName" type="text" placeholder="Full Name" required>
 
         <!-- DEPARTMENT DROPDOWN -->
-        <select required>
+        <select id="facDept" required>
             <option value="">Select Department</option>
             <option>Computer Engineering</option>
             <option>Information Technology</option>
@@ -25,6 +26,7 @@
 
         <!-- 10 DIGIT CONTACT -->
         <input 
+            id="facContact"
             type="tel" 
             placeholder="Contact Number (10 digits)" 
             pattern="[0-9]{10}" 
@@ -32,13 +34,29 @@
             required
         >
 
-        <input type="email" placeholder="Somaiya Email ID" required>
+        <input id="facEmail" type="email" placeholder="Somaiya Email ID" required>
 
         <label class="upload-label">Upload College ID Proof</label>
-        <input type="file" required>
+        <input id="facId" type="file" required>
 
         <button type="submit">Register (Approval Required)</button>
     </form>
+
+<script>
+function submitFaculty(event){
+    event.preventDefault();
+    const user = {
+        name: document.getElementById('facName').value,
+        role: 'Faculty',
+        department: document.getElementById('facDept').value,
+        email: document.getElementById('facEmail').value
+    };
+    app.addUser(user);
+    alert('Registered. Account pending admin approval.');
+    window.location.href = 'login.html';
+    return false;
+}
+</script>
 </div>
 
 </body>
